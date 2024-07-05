@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Calculator</title>
+    <link rel="stylesheet" href="js_calculator_style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="calculator">
+            <div class="display">
+                <input type="text" class="inner-display" readonly>
+            </div>
+            <div class="buttons">
+                <button class="button" id="c" onclick="clearDisplay()">C</button>
+                <button class="button" id="one" onclick="addToDisplay('1')">1</button>
+                <button class="button" id="two" onclick="addToDisplay('2')">2</button>
+                <button class="button" id="three" onclick="addToDisplay('3')">3</button>
+                <button class="button" id="four" onclick="addToDisplay('4')">4</button>
+                <button class="button" id="five" onclick="addToDisplay('5')">5</button>
+                <button class="button" id="six" onclick="addToDisplay('6')">6</button>
+                <button class="button" id="seven" onclick="addToDisplay('7')">7</button>
+                <button class="button" id="eight" onclick="addToDisplay('8')">8</button>
+                <button class="button" id="nine" onclick="addToDisplay('9')">9</button>
+                <button class="button" id="zero" onclick="addToDisplay('0')">0</button>
+                <button class="button" id="plus" onclick="addToDisplay('+')">+</button>
+                <button class="button" id="minus" onclick="addToDisplay('-')">-</button>
+                <button class="button" id="multiply" onclick="addToDisplay('*')">*</button>
+                <button class="button" id="slash" onclick="addToDisplay('/')">/</button>
+                <button class="button" id="equalto" onclick="evaluateDisplay()">=</button>
+                <button class="button" id="dot" onclick="addToDisplay('.')">.</button>
+                <button class="button" id="leftbarcket" onclick="addToDisplay( '(' )">(</button>
+                <button class="button" id="rightbracket" onclick="addToDisplay(')')">)</button>
+                <!-- <button class="button" id="shafi" onclick="addToDisplay('Ashraf Khan Shafi')">AJK</button> -->
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentDisplay = '';
+        document.querySelector(".inner-display").value = currentDisplay;
+
+        function clearDisplay() {
+            currentDisplay = '';
+            document.querySelector('.inner-display').value = currentDisplay;
+        }
+
+        function addToDisplay(value) {
+            currentDisplay += value;
+            document.querySelector('.inner-display').value = currentDisplay;
+        }
+
+        function evaluateDisplay() {
+            try {
+                currentDisplay = eval(currentDisplay);
+                document.querySelector('.inner-display').value = currentDisplay;
+            } catch (error) {
+                document.querySelector('.inner-display').value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
